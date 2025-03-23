@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Bikes</title>
+    <link rel="stylesheet" href="ev ather.css">
+    <link rel="stylesheet" href="img.css">
+</head>
+<body>
+    <header>
+        <input type="checkbox" name="" id="toggler">
+        <label for="toggler" class="fa-solid fa-bars"></label>
+        <a href="" class="logo">EV ATHER <span>.</span></a>
+        <nav class="navbar">
+           <a href="ather.html">Main Page</a>
+        </nav>
+        <div class="icons">
+            <a href="" class="fa-brands fa-facebook"></a>           
+              
+            <a href="" class="fa-regular fa-user"></a>           
+        </div>
+        <div class="toggel"></div>
+        
+      
+    </header>
+
+    <div class="slider">
+
+
+        <div class="list">
+
+            <div class="item">
+                <img src="asset/Ather6.jpg" alt="">
+
+                <div class="content">
+                    <div class="title">STYLISH RED TAIL LAPM</div>
+                    <div class="type">ATHER</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="asset/Ather15.jpg" alt="">
+
+                <div class="content">
+                    <div class="title">STYLISH NEW LOOK </div>
+                    <div class="type">ATHER</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="asset/Ather5.jpg" alt="">
+
+                <div class="content">
+                    <div class="title">EXCLUSIVE FAMLIY COMFORT</div>
+                    <div class="type">ATHER</div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="asset/Ather14.jpg" alt="">
+
+                <div class="content">
+                    <div class="title">BATTERY CHARGING 4HRS </div>
+                    <div class="type">80 KMS /PER HRS</div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="thumbnail">
+
+            <div class="item">
+                <img src="asset/Ather6.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="asset/Ather14.jpg"alt="">
+            </div>
+            <div class="item">
+                <img src="asset/Ather15.jpg" alt="">
+            </div>
+            <div class="item">
+                <img src="asset/Ather5.jpg" alt="">
+            </div>
+
+        </div>
+
+
+        <div class="nextPrevArrows">
+            <button class="prev"> < </button>
+            <button class="next"> > </button>
+        </div>
+
+
+    </div>
+
+
+
+
+
+    <script>
+        let nextBtn = document.querySelector('.next')
+let prevBtn = document.querySelector('.prev')
+
+let slider = document.querySelector('.slider')
+let sliderList = slider.querySelector('.slider .list')
+let thumbnail = document.querySelector('.slider .thumbnail')
+let thumbnailItems = thumbnail.querySelectorAll('.item')
+
+thumbnail.appendChild(thumbnailItems[0])
+
+// Function for next button 
+nextBtn.onclick = function() {
+    moveSlider('next')
+}
+
+
+// Function for prev button 
+prevBtn.onclick = function() {
+    moveSlider('prev')
+}
+
+
+function moveSlider(direction) {
+    let sliderItems = sliderList.querySelectorAll('.item')
+    let thumbnailItems = document.querySelectorAll('.thumbnail .item')
+    
+    if(direction === 'next'){
+        sliderList.appendChild(sliderItems[0])
+        thumbnail.appendChild(thumbnailItems[0])
+        slider.classList.add('next')
+    } else {
+        sliderList.prepend(sliderItems[sliderItems.length - 1])
+        thumbnail.prepend(thumbnailItems[thumbnailItems.length - 1])
+        slider.classList.add('prev')
+    }
+
+
+    slider.addEventListener('animationend', function() {
+        if(direction === 'next'){
+            slider.classList.remove('next')
+        } else {
+            slider.classList.remove('prev')
+        }
+    }, {once: true}) // Remove the event listener after it's triggered once
+}
+    </script>
+</body>
+</html>
